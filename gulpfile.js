@@ -1,51 +1,38 @@
-'use strict';
+// 環境変数
+const setting = {
+    scss: {
+        watch: "./dev/scss/*/*.scss",
+        src: "./dev/scss/*.scss",
+        dest: "./root/css"
+    }
+};
 
-var gulp         = require('gulp');
-var plumber      = require('gulp-plumber');
-var rename       = require('gulp-rename');
-var sass         = require('gulp-sass');
-var autoPrefixer = require('gulp-autoprefixer');
-var cssComb      = require('gulp-csscomb');
-var cmq          = require('gulp-merge-media-queries');
-var uglify       = require('gulp-uglify');
-var concat       = require('gulp-concat');
+const gulp = require("gulp");
 
-gulp.task('sass',function(){
-    gulp.src([
-          'src/scss/**/*.scss',
-          '!src/scss/**/_*.scss'
-        ])
-        .pipe(plumber({
-            handleError: function (err) {
-                console.log(err);
-                this.emit('end');
-            }
-        }))
-        .pipe(sass())
-        .pipe(autoPrefixer())
-        .pipe(cssComb())
-        .pipe(cmq({log: true}))
-        .pipe(concat('main.css'))
-        .pipe(gulp.dest('dist/css'))
+// SCSSプラグインの読み込み
+var sass = require("gulp-sass");
+// SCSSをまとめて読み込むプラグインの読み込み
+var sassGlob = require("gulp-sass-glob");
+
+// SCSSをCSSに変換するタスクを作成
+gulp.task("scss", () => {
+    return (
+        gulp
+            // 変換対象のファイル
+            .src(setting.scss.src)
+            //SCSSをまとめ読み込むことを許可する
+            .pipe(sassGlob())
+            //SCSS → CSS変換
+            .pipe(sass())
+            //CSSを出力（保存）
+            .pipe(gulp.dest(setting.scss.dest))
+    );
 });
 
-gulp.task('js',function(){
-    gulp.src(['src/js/**/*.js'])
-        .pipe(plumber({
-            handleError: function (err) {
-                console.log(err);
-                this.emit('end');
-            }
-        }))
-        .pipe(gulp.dest('dist/js'))
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/js'))
+// ファイルの変更を監視してタスク実行
+gulp.task("watch", () => {
+    gulp.watch(setting.scss.watch, gulp.series("scss"));
 });
 
-gulp.task('default',function(){
-    gulp.watch('src/js/**/*.js',['js']);
-    gulp.watch('src/scss/**/*.scss',['sass']);
-});
+// gulp起動時に実行するタスク
+gulp.task("default", gulp.series("watch"));
