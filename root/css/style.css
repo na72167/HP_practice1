@@ -45,14 +45,78 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.footer {
-  margin: 10px; }
+body {
+  background-color: #f6f4ef;
+  font-family: Inter, "Yu Gothic", YuGothic, sans-serif;
+  font-size: 1rem; }
 
 .header {
-  width: 100px; }
+  height: 80px;
+  width: 100%;
+  overflow: hidden;
+  float: left;
+  position: fixed; }
+  .header__header-title {
+    float: left;
+    margin-left: 30px;
+    position: relative;
+    top: 30px; }
+  .header__header-nav {
+    float: left;
+    position: relative;
+    top: 30px;
+    left: 550px; }
+  .header__header-navElement {
+    float: left;
+    margin-left: 20px; }
+  .header__header-userWrap {
+    float: right;
+    position: relative;
+    top: 30px; }
+  .header__header-users {
+    float: left;
+    margin-right: 30px; }
+  .header__header-border {
+    background-color: #dddbd7;
+    height: 1px;
+    position: relative;
+    top: 79px; }
 
-.header {
-  width: 100px; }
-
-.header {
-  margin: 100px; }
+.main {
+  height: 800px;
+  width: 100%; }
+  .main__border-wrap {
+    height: 600px;
+    width: 1000px;
+    position: relative;
+    top: 120px;
+    margin-right: auto;
+    margin-left: auto; }
+  .main__border-1 {
+    background-color: #dddbd7;
+    height: 1px;
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto; }
+  .main__border-2 {
+    background-color: #dddbd7;
+    position: relative;
+    top: 2px;
+    height: 1px;
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto; }
+  .main__sihuku {
+    position: relative;
+    top: 10px;
+    width: 110px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .main__theme {
+    position: absolute;
+    top: 120px;
+    width: 1200px;
+    font-size: 120px;
+    display: block;
+    z-index: 2; }

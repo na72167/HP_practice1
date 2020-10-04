@@ -1,0 +1,38 @@
+.header{
+  height: 80px;
+  width:100%;
+  overflow: hidden;
+  float: left;
+  position: fixed;
+  &__header-title{
+    float: left;
+    margin-left: 30px;
+    position: relative;
+    top:30px;
+  }
+  &__header-nav{
+    float: left;
+    position: relative;
+    top:30px;
+    left:550px;
+  }
+  &__header-navElement{
+    float: left;
+    margin-left: 20px;
+  }
+  &__header-userWrap{
+    float: right;
+    position: relative;
+    top:30px;
+  }
+  &__header-users{
+    float: left;
+    margin-right: 30px;
+  }
+  &__header-border{
+    background-color: #dddbd7;
+    height: 1px;
+    position: relative;
+    top:79px;
+  }
+}
