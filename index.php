@@ -5,6 +5,8 @@
   <title>Project</title></title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
   <link rel="stylesheet" href="root/css/style.css">
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="main.js"></script>
 </head>
 <body>
   <header class="header">
@@ -17,6 +19,7 @@
         <li class="header__header-navElement">CONCEPT</li>
         <li class="header__header-navElement">CHEF</li>
         <li class="header__header-navElement">JOURNAL</li>
+        <li class="header__header-navElement">CONTACT</li>
       </ul>
     </nav>
       <div class="header__header-userWrap">
